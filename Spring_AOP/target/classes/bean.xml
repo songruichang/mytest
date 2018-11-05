@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--xml-->
+
+<!--<?xml version="1.0" encoding="UTF-8"?>-->
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+       <!--xmlns:aop="http://www.springframework.org/schema/aop"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans-->
+        <!--http://www.springframework.org/schema/beans/spring-beans.xsd-->
+        <!--http://www.springframework.org/schema/aop-->
+        <!--http://www.springframework.org/schema/aop/spring-aop.xsd">-->
+
+    <!--<bean id="bookService" class="cn.itcast.service.impl.BookServiceImpl"></bean>-->
+    <!--<bean id="logger" class="cn.itcast.utils.Logger" ></bean>-->
+
+    <!--<aop:config>-->
+
+        <!--<aop:pointcut id="pt1" expression="execution(* *..*.*(..))"></aop:pointcut>-->
+
+        <!--<aop:aspect id="logAdvice" ref="logger">-->
+            <!--<aop:around method="aroundprintLog" pointcut-ref="pt1"></aop:around>-->
+        <!--</aop:aspect>-->
+
+    <!--</aop:config>-->
+    <!--配置spring创建容器时需要扫描的包-->
+    <context:component-scan base-package="cn.itcast"></context:component-scan>
+    <!--配置spring开启注解AOP的支持-->
+
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+
+
+    </beans>
+
+
+
