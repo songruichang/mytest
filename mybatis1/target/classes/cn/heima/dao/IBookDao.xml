@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.heima.dao.IBookDao">
+    <!--<cache></cache>-->
+    <!--<select id="findAll" resultType="cn.heima.domain.Book" >-->
+       <!--select*from book ;-->
+    <!--</select>-->
+
+    <!--<select id="findByCount" resultType="java.lang.Integer">-->
+        <!--select count(*)from book;-->
+    <!--</select>-->
+
+    <!--<select id="findByCount1" resultType="java.util.Map">-->
+
+        <!--select kind_id as a,avg(price) as b from book group by kind_id-->
+    <!--</select>-->
+
+    <!--<insert id="add" parameterType="cn.heima.domain.Book">-->
+        <!--insert into book values(null,#{bookname},#{kind_id},#{author},#{company},#{price})-->
+    <!--</insert>-->
+
+    <!--<delete id="del" parameterType="java.lang.Integer">-->
+        <!--delete from book where id=#{id};-->
+
+    <!--</delete>-->
+
+    <!--<update id="modify" parameterType="cn.heima.domain.Book">-->
+    <!--update book set price=#{price} where id=#{id}-->
+    <!--</update>-->
+
+
+    <!--&lt;!&ndash;<resultMap id="Book" type="cn.heima.domain.Book">&ndash;&gt;-->
+        <!--&lt;!&ndash;<result column="bookname" property="song"></result>&ndash;&gt;-->
+    <!--&lt;!&ndash;</resultMap>&ndash;&gt;-->
+    <!--&lt;!&ndash;<select id="findByCom" parameterType="java.lang.String" resultMap="Book">&ndash;&gt;-->
+            <!--&lt;!&ndash;select *from book where company like #{?}&ndash;&gt;-->
+    <!--&lt;!&ndash;</select>&ndash;&gt;-->
+
+
+
+    <!--<resultMap id="BookMap" type="Book">-->
+        <!--<result column="kind_name" property="kind.kind_name"></result>-->
+    <!--</resultMap>-->
+    <!--&lt;!&ndash;<select id="find" resultMap="BookMap" >&ndash;&gt;-->
+        <!--&lt;!&ndash;select bookname ,k.kind_name,author from book b inner join kind k on b.kind_id=k.id&ndash;&gt;-->
+    <!--&lt;!&ndash;</select>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;根据条件查询&ndash;&gt;-->
+    <!--<select id="find" resultMap="BookMap" parameterType="book">-->
+        <!--select bookname,kind_name,company from book b inner join kind k on b.kind_id=k.id-->
+        <!--where 1=1-->
+        <!--<if test="company!=null and company !='null' and company !='' ">-->
+            <!--and company like #{company}-->
+        <!--</if>-->
+    <!--</select>-->
+
+    <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--<select id="findById" parameterType="List" resultType="book">-->
+        <!--select*from book-->
+
+        <!--<where>-->
+            <!--<foreach collection="list" open="id in(" item="id" separator="," close=" )">-->
+                <!--#{id}-->
+            <!--</foreach>-->
+        <!--</where>-->
+    <!--</select>-->
+
+    <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--<delete id="deletById" parameterType="int">-->
+       <!--DELETE FROM book-->
+        <!--<where>-->
+            <!--<foreach collection="array" open="id in(" item="id" separator="," close=")">-->
+                <!--#{id}-->
+            <!--</foreach>-->
+        <!--</where>-->
+
+
+    <!--</delete>-->
+<!--&lt;!&ndash;&ndash;&gt;-->
+
+    <!--<resultMap id="BBook" type="book" autoMapping="true">-->
+    <!--<collection property="kind" ofType="kind" autoMapping="true"></collection>-->
+   <!--</resultMap>-->
+
+    <!--<select id="findAll2" resultMap="BBook" parameterType="book">-->
+        <!--select b.bookname,k.kind_name from book b join  kind k on b.kind_id=k.id-->
+        <!--<where>-->
+            <!--<if test="company!=null and company!='' and company!='null'">-->
+                <!--and company like #{company}-->
+            <!--</if>-->
+        <!--</where>-->
+    <!--</select>-->
+    <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--<select id="findgd" resultMap="BBook" parameterType="book">-->
+     <!--select bookname ,kind_name ,company from book b inner join kind k on b.kind_id=k.id-->
+        <!--<where>-->
+            <!--<if test="kind.kind_name!=null">-->
+                <!--and kind_name=#{kind.kind_name}-->
+            <!--</if>-->
+        <!--</where>-->
+
+    <!--</select>-->
+  <!--&lt;!&ndash;&ndash;&gt;-->
+    <!--<select id="updateById" parameterType="map">-->
+      <!--update book set price=#{price}-->
+        <!--<where>-->
+            <!--<foreach collection="idd" open="id in(" item="id" separator="," close=")">-->
+                <!--#{id}-->
+            <!--</foreach>-->
+        <!--</where>-->
+
+    <!--</select>-->
+    <!---->
+
+    <!--<resultMap id="info" type="Saleinfo" autoMapping="true" >-->
+        <!--<collection></collection>-->
+        <!--<collection></collection>-->
+        <!--<collection></collection>-->
+    <!--</resultMap>-->
+
+    <!--<select id="find" resultMap="info">-->
+ <!--SELECT c.username ,s.saletime,b.bookname,k.kind_name,s.nums*b.price as tol FROM saleinfo s LEFT JOIN book b ON s.bookid=b.id LEFT JOIN kind k-->
+            <!--ON b.kind_id=k.id LEFT JOIN customer c ON s.cid=c.id-->
+    <!--</select>-->
+    <!---->
+    <!--<resultMap id="Map" type="book" autoMapping="true">-->
+        <!--<collection property="kind" ofType="kind" select="find" column="kind_id"></collection>-->
+    <!--</resultMap>-->
+    <!--<select id="findAll" resultMap="Map">-->
+        <!--select *from book-->
+    <!--</select>-->
+    <!--<select id="find" parameterType="Integer" resultType="kind">-->
+        <!--select *from kind where id=#{?}-->
+    <!--</select>-->
+    <!---->
+
+        <!--<select id="find" resultType="kind" useCache="true">-->
+            <!--select *from kind-->
+        <!--</select>-->
+
+<!---->
+    <!--<resultMap id="KindMap2" type="kind">-->
+        <!--<result column="kind_name" property="kind_name"></result>-->
+        <!--<collection property="list" ofType="book">-->
+            <!--<result column="bookname" property="bookname"></result>-->
+        <!--</collection>-->
+    <!--</resultMap>-->
+
+    <!--<select id="findByKind" resultMap="KindMap2">-->
+        <!--select bookname,kind_name from book b,kind k where b.kind_id=k.id-->
+    <!--</select>-->
+    <!---->
+
+    <resultMap id="SaleInfoMap" type="SaleInfoVo">
+        <result column="bookname" property="book.bookname"></result>
+        <result column="price" property="book.price"></result>
+    </resultMap>
+    <select id="findByInfo" resultMap="SaleInfoMap">
+        select bookname,price,nums,(nums*price) as total
+        from book b ,saleinfo s where b.id=s.bookid
+    </select>
+
+
+
+
+
+</mapper>
